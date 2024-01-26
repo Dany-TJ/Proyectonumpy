@@ -1,21 +1,28 @@
-import pandas as pd
 import numpy as np
 
-# Definir la estructura de datos (reemplázala con tu propia data)
-data = {'is_dead': [0, 1, 0, 1, 0],
-        'age': [25, 30, 22, 35, 28]}
+def calcular_promedio_edad(edades):
+    """
+    Calcula el promedio de edades.
 
-# Crear un DataFrame de Pandas
-df = pd.DataFrame(data)
+    Parameters:
+    - edades: Un arreglo de NumPy que contiene las edades.
 
-# Separar el DataFrame en dos subconjuntos
-df_dead = df[df['is_dead'] == 1]
-df_alive = df[df['is_dead'] == 0]
+    Returns:
+    - El promedio de edades.
+    """
+    return np.mean(edades)
 
-# Calcular los promedios de las edades en cada subconjunto
-average_age_dead = np.mean(df_dead['age'])
-average_age_alive = np.mean(df_alive['age'])
+def main():
+    # Suponiendo que 'data' es tu DataFrame con una columna 'age'
+    edades = np.array(data['age'])
 
-# Imprimir los resultados
-print(f"El promedio de edad de las personas que perecieron en el estudio es {average_age_dead}")
-print(f"El promedio de edad de las personas que sobrevivieron en el estudio es {average_age_alive}")
+    # Calcular el promedio de edad
+    promedio_edad = calcular_promedio_edad(edades)
+
+    # Imprimir el resultado
+    print(f"El promedio de edad de las personas participantes en el estudio es {promedio_edad}.")
+
+if __name__ == "__main__":
+    # Aquí puedes cargar tu DataFrame 'data' y luego llamar a la función main()
+    # Ejemplo: data = cargar_datos()
+    main()
